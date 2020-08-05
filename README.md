@@ -2,7 +2,7 @@
 > Switch between Kubernetes context & namespace using an interactive menu.
 
 ![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
-![Version 1.0.0](https://img.shields.io/badge/Version-1.0.0-yellow.svg?style=for-the-badge)
+![Version 1.0.1](https://img.shields.io/badge/Version-1.0.1-yellow.svg?style=for-the-badge)
 
 ### About
 
