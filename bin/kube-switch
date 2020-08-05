@@ -66,8 +66,8 @@ class ANSI:
 		return "\033[31m%s\033[0m" % message
 
 def is_arrow ( queue ):
-	if len ( queue ) is 3:
-		return queue [ 0 ] is 27 and queue [ 1 ] is 91
+	if len ( queue ) == 3:
+		return queue [ 0 ] == 27 and queue [ 1 ] == 91
 	return False
 
 class Kube:
@@ -137,9 +137,9 @@ class Kube:
 		return_value = None
 		while True:
 			filtered_choices = [i for i in choices if filter in i]
-			selection = filtered_choices.index ( current_value ) if selection is -2 and current_value in filtered_choices else selection
+			selection = filtered_choices.index ( current_value ) if selection == -2 and current_value in filtered_choices else selection
 			selection = min ( max ( selection, 0 ), len ( filtered_choices ) - 1 )
-			selected_value = None if len ( filtered_choices ) is 0 else filtered_choices [ selection ]
+			selected_value = None if len ( filtered_choices ) == 0 else filtered_choices [ selection ]
 			ANSI.clear ()
 			ANSI.civis ()
 			ANSI.set_cursor ( 1, 1 )
@@ -148,35 +148,35 @@ class Kube:
 			print ("Type to filter, UP/DOWN move, ENTER select, ESC exit\n")
 			print ( "%s: %s\n" % ( title, selected_value ) )
 			for index, choice in enumerate ( filtered_choices ):
-				if index is selection:
+				if index == selection:
 					print ( ANSI.selection_color ( " + %s " % choice ) )
-				elif current_value is choice:
+				elif current_value == choice:
 					print ( ANSI.active_color ( " + %s " % choice ) )
 				else:
 					print ( " + %s" % choice )
-			if len ( filtered_choices ) is 0:
+			if len ( filtered_choices ) == 0:
 				print ( ANSI.error_color ("No results; refine filter.") )
 			ANSI.set_cursor ( 1, len ( filter ) + 9 )
 			char = get_char ()
 			key_queue.append ( ord ( char ) )
 			key_queue = key_queue [-3:]
 			ANSI.set_cursor ( 30, 1 )
-			if ord ( char ) is 3:
+			if ord ( char ) == 3:
 				return_value = None
 				break
-			elif ord ( char ) is 13 or ord ( char ) is 10:
-				if len ( filtered_choices ) is not 0:
+			elif ord ( char ) == 13 or ord ( char ) == 10:
+				if len ( filtered_choices ) != 0:
 					return_value = selected_value
 					break
-			elif ord ( char ) is 127:
+			elif ord ( char ) == 127:
 				filter = filter [0:-1]
 				selection = -2
-			elif ord ( char ) is 68 or ord ( char ) is 67:
+			elif ord ( char ) == 68 or ord ( char ) == 67:
 				continue
-			elif is_arrow ( key_queue ) and ord ( char ) is 65:
+			elif is_arrow ( key_queue ) and ord ( char ) == 65:
 				if len ( filtered_choices ) > 0:
 					selection -= 1
-			elif is_arrow ( key_queue ) and ord ( char ) is 66:
+			elif is_arrow ( key_queue ) and ord ( char ) == 66:
 				if len ( filtered_choices ) > 0:
 					selection += 1
 			elif re.match ( "^[0-9a-z-_]*$", str ( char ), re.IGNORECASE ):
@@ -195,14 +195,14 @@ def main ():
 			kube.context_names,
 			kube.active_context_index
 		)
-		if chosen_context is not None:
+		if chosen_context != None:
 			kube.set_context ( chosen_context )
 			chosen_namespace = kube.prompt (
 				"Pick Kubernetes Namespace",
 				kube.namespace_names,
 				kube.active_namespace_index
 			)
-			if chosen_namespace is not None:
+			if chosen_namespace != None:
 				kube.set_namespace ( chosen_namespace )
 	except ( KeyboardInterrupt, SystemExit ):
 		ANSI.rmcup ()
