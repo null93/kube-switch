@@ -1,7 +1,9 @@
 # Files
 .DS_Store
+*.pyc
 
 # Directories
+__pycache__
 dist
 include
 build
