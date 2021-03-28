@@ -3,13 +3,18 @@ package internal
 import (
 	"os"
 	"fmt"
+	"strings"
 	"github.com/spf13/cobra"
 )
 
 var command = &cobra.Command {
 	Use: "kube-switch",
 	Version: "2.0.0",
-	Short: "Example",
+	Short: "Switch between Kubernetes context & namespace using an interactive menu",
+	Example: strings.Join ( [] string {
+		"  kube-switch",
+		"  kube-switch -c",
+	}, "\n" ),
 	Run: func ( cmd * cobra.Command, args [] string ) {
 		current, _ := cmd.Flags ().GetBool ("current-context")
 		PickContextAndNamespace ( current )
