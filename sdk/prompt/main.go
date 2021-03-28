@@ -2,6 +2,7 @@ package prompt
 
 import (
 	"fmt"
+	"unicode"
 	"github.com/fatih/color"
 	term "github.com/nsf/termbox-go"
 )
@@ -28,7 +29,12 @@ func Pick ( options Options ) ( string, bool ) {
 		fmt.Printf ( "Filter: %s%s\n", search, color.YellowString ("_") )
 		fmt.Printf ( "Type to filter, UP/DOWN move, ENTER select, ESC exit\n" )
 		fmt.Printf ( "\n" )
-		fmt.Printf ( "%s: %s%s\n", options.Header, options.SelectionPrefix, GetIndex ( filtered, index, "nothing-to-select" ) )
+		fmt.Printf (
+			"%s: %s%s\n",
+			options.Header,
+			options.SelectionPrefix,
+			GetIndex ( filtered, index, color.RedString ("Nothing To Display") ),
+		)
 		fmt.Printf ( "\n" )
 		for i, choice := range filtered {
 			line := fmt.Sprintf ( " + %s \n", choice )
@@ -59,7 +65,9 @@ func Pick ( options Options ) ( string, bool ) {
 							search = search [:len ( search ) - 1]
 						}
 					default:
-						search = fmt.Sprintf ( "%s%c", search, event.Ch )
+						if unicode.IsGraphic ( event.Ch ) && unicode.IsPrint ( event.Ch ) {
+							search = fmt.Sprintf ( "%s%c", search, event.Ch )
+						}
 				}
 			case term.EventError:
 				panic ( event.Err )
