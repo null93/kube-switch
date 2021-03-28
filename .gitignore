@@ -1,9 +1,6 @@
 # Files
 .DS_Store
-*.pyc
 
 # Directories
-__pycache__
+bin
 dist
-include
-build

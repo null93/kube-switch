@@ -1,0 +1,17 @@
+# Documentation:
+# https://nfpm.goreleaser.com/configuration/
+
+name: kube-switch
+arch: amd64
+platform: linux
+version: 1.0.1
+section: default
+priority: extra
+maintainer: Rafael Grigorian <rafael@grigorian.org>
+description: Switch between Kubernetes context & namespace using an interactive menu.
+vendor: null93
+homepage: https://github.com/null93/kube-switch
+license: The MIT License
+contents:
+-   src: bin/kube-switch_linux_amd64
+    dst: /usr/bin/kube-switch
