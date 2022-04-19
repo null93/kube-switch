@@ -41,7 +41,7 @@ func GetNamespaces () ( [] string, string, error ) {
 	}
 	kubeConfigPath := path.Join ( homedir.HomeDir (), ".kube", "config" )
 	if config, error := clientcmd.BuildConfigFromFlags ( "", kubeConfigPath ); error == nil {
-		config.Timeout = time.Millisecond * 1000
+		config.Timeout = time.Millisecond * 5000
 		if clientset, error := kubernetes.NewForConfig ( config ); error == nil {
 			if response, error := clientset.CoreV1 ().Namespaces ().List ( context.TODO (), v1.ListOptions {} ); error == nil {
 				items := [] string {}
