@@ -9,7 +9,7 @@ import (
 
 var command = &cobra.Command {
 	Use: "kube-switch",
-	Version: "2.0.3",
+	Version: "2.1.0",
 	Short: "Switch between Kubernetes context & namespace using an interactive menu",
 	Example: strings.Join ( [] string {
 		"  kube-switch",
