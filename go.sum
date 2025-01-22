@@ -91,6 +91,8 @@ github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 h1:C3w9PqII01/Oq
 github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822/go.mod h1:+n7T8mK8HuQTcFwEeznm/DIxMOiR9yIdICNftLE1DvQ=
 github.com/null93/aws-knox v0.0.0-20250107055713-60959cd997f3 h1:zyRKWM0m8ise8PfHf/nZNEes47eA4yFKRLrqU2az3+Q=
 github.com/null93/aws-knox v0.0.0-20250107055713-60959cd997f3/go.mod h1:Mq6W9KiQx6FT3KICFhVgaK1/XjOHmlL+0xI93eyO3LI=
+github.com/null93/aws-knox v0.0.0-20250122043856-6cf53375fbd3 h1:G1kEdIrXzlCCm/BSfIhenk96925MizOfHBc8/9Fqtrg=
+github.com/null93/aws-knox v0.0.0-20250122043856-6cf53375fbd3/go.mod h1:Mq6W9KiQx6FT3KICFhVgaK1/XjOHmlL+0xI93eyO3LI=
 github.com/onsi/ginkgo/v2 v2.21.0 h1:7rg/4f3rB88pb5obDgNZrNHrQ4e6WpjonchcpuBRnZM=
 github.com/onsi/ginkgo/v2 v2.21.0/go.mod h1:7Du3c42kxCUegi0IImZ1wUQzMBVecgIHjR1C+NkhLQo=
 github.com/onsi/gomega v1.35.1 h1:Cwbd75ZBPxFSuZ6T+rN/WCb/gOc6YgFBXLlZLhC7Ds4=

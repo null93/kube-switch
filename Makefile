@@ -8,6 +8,9 @@ DARWIN=$(EXECUTABLE)_darwin_amd64
 build: linux darwin ## Build for all platforms
 	@echo version: $(VERSION)
 
+pretty:
+	@goimports -w cmd sdk internal
+
 linux: $(LINUX)
 
 darwin: $(DARWIN)

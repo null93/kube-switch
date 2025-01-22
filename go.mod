@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.23.2
 
 require (
-	github.com/null93/aws-knox v0.0.0-20250107055713-60959cd997f3
+	github.com/null93/aws-knox v0.0.0-20250122043856-6cf53375fbd3
 	github.com/spf13/cobra v1.8.1
 	k8s.io/apimachinery v0.32.1
 	k8s.io/client-go v0.32.1
